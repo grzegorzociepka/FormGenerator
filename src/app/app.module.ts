@@ -13,6 +13,7 @@ import { CheckboxFieldComponent } from './components/checkbox-field/checkbox-fie
 import { NumberFieldComponent } from './components/number-field/number-field.component';
 import { TelFieldComponent } from './components/tel-field/tel-field.component';
 import { RangeFieldComponent } from './components/range-field/range-field.component';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RangeFieldComponent } from './components/range-field/range-field.compon
     CheckboxFieldComponent,
     NumberFieldComponent,
     TelFieldComponent,
-    RangeFieldComponent
+    RangeFieldComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
