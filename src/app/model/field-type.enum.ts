@@ -6,5 +6,6 @@ export enum FieldType {
   email,
   tel,
   range,
-  number
+  number,
+  select
 }
