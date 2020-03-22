@@ -5,5 +5,5 @@ export interface Field {
   label: string;
   value: string;
   type: FieldType;
-  (): void;
+  render(): void;
 }
