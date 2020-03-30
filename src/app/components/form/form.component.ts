@@ -12,10 +12,17 @@ export class FormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    this.fieldsInForm.push();
+    this.render();
   }
 
   getValue(): void {
     console.log('Return values');
+  }
+
+  render(): void {
+    this.fieldsInForm.forEach(x => x.render());
   }
 
 }

@@ -1,11 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
 import {FieldType} from '../../model/field-type.enum';
 import {Field} from '../../model/field';
+import {SharedModule} from '../SharedModule';
 
 @Component({
   selector: 'app-input-field',
   templateUrl: './input-field.component.html',
   styleUrls: ['./input-field.component.scss']
+})
+
+@NgModule({
+  declarations: [InputFieldComponent],
+  imports: [SharedModule]
 })
 export class InputFieldComponent implements OnInit, Field {
   name: string;
@@ -17,6 +23,8 @@ export class InputFieldComponent implements OnInit, Field {
   ngOnInit(): void {
   }
 
-  render(): void {}
+  render(): void {
+
+  }
 
 }
