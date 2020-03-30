@@ -1,7 +1,8 @@
-import {Component, NgModule, OnInit} from '@angular/core';
+import {Component, Input, NgModule, OnInit} from '@angular/core';
 import {FieldType} from '../../model/field-type.enum';
 import {Field} from '../../model/field';
 import {SharedModule} from '../SharedModule';
+import {DynamicComponentConfig} from '../../model/DynamicComponentConfig';
 
 @Component({
   selector: 'app-input-field',
@@ -14,6 +15,7 @@ import {SharedModule} from '../SharedModule';
   imports: [SharedModule]
 })
 export class InputFieldComponent implements OnInit, Field {
+  @Input() dynamicComponentConfigs: DynamicComponentConfig[];
   name: string;
   label: string;
   type: FieldType;

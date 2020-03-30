@@ -5,14 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FieldLabelComponent } from './components/field-label/field-label.component';
 import { FormComponent } from './components/form/form.component';
-import {DynamicComponentLoaderDirective} from './components/dynamic-component-loader.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FieldLabelComponent,
-    FormComponent,
-    DynamicComponentLoaderDirective
+    FormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import {FieldType} from '../model/field-type.enum';
-import {ComponentFactoryResolver, Directive, Input, ViewContainerRef} from '@angular/core';
+import {ComponentFactoryResolver, Directive, Input, Type, ViewContainerRef} from '@angular/core';
 import {Field} from '../model/field';
+import {DynamicComponentConfig} from '../model/DynamicComponentConfig';
 
 const dynamicComponentImportsMap = {
   [FieldType.checkbox]: () => import('./checkbox-field/checkbox-field.component'),
@@ -26,10 +27,10 @@ export class DynamicComponentLoaderDirective {
   }
 
   private loadComponent(dynamicComponentConfig: DynamicComponentConfig) {
-    this.resolveCmpClass<Field>(dynamicImportsMap[dynamicComponentConfig.type]).then(cmpClass => {
+    this.resolveCmpClass<Field>(dynamicComponentImportsMap[dynamicComponentConfig.type]).then(cmpClass => {
       const cmpFactory = this.componentFactoryResolver.resolveComponentFactory(cmpClass);
       const cmpRef = this.viewContainerRef.createComponent(cmpFactory);
-      (cmpRef.instance as Field).dynamicComponentConfigs = dynamicComponentConfig.content;
+      // (cmpRef.instance as Field).dynamicComponentConfigs = dynamicComponentConfig.content;
     });
   }
 

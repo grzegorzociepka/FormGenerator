@@ -1,11 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FieldType} from '../model/field-type.enum';
+import {DynamicComponentLoaderDirective} from './dynamic-component-loader.directive';
 
 
 @NgModule({
+  declarations: [DynamicComponentLoaderDirective],
   exports: [
-    CommonModule
+    CommonModule,
+    DynamicComponentLoaderDirective
   ],
   imports: [CommonModule]
 })
