@@ -1,0 +1,4 @@
+<ng-container *ngFor="let dynamicComponentConfig of dynamicComponentConfigs">
+  <ng-template [appDynamicComponentLoader]="dynamicComponentConfig">
+  </ng-template>
+</ng-container>

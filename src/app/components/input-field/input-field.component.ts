@@ -3,6 +3,7 @@ import {FieldType} from '../../model/field-type.enum';
 import {Field} from '../../model/field';
 import {SharedModule} from '../SharedModule';
 import {DynamicComponentConfig} from '../../model/DynamicComponentConfig';
+import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
 
 @Component({
   selector: 'app-input-field',
@@ -10,23 +11,14 @@ import {DynamicComponentConfig} from '../../model/DynamicComponentConfig';
   styleUrls: ['./input-field.component.scss']
 })
 
+
+export class InputFieldComponent extends DynamicComponentBaseComponent {
+}
+
 @NgModule({
   declarations: [InputFieldComponent],
   imports: [SharedModule]
 })
-export class InputFieldComponent implements OnInit, Field {
-  @Input() dynamicComponentConfigs: DynamicComponentConfig[];
-  name: string;
-  label: string;
-  type: FieldType;
-  value: string;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  render(): void {
-
-  }
-
+class InputFieldModule {
 }

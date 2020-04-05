@@ -2,6 +2,7 @@ import {FieldType} from '../model/field-type.enum';
 import {ComponentFactoryResolver, Directive, Input, Type, ViewContainerRef} from '@angular/core';
 import {Field} from '../model/field';
 import {DynamicComponentConfig} from '../model/DynamicComponentConfig';
+import {DynamicComponentBaseComponent} from './DynamicComponentBaseComponent';
 
 const dynamicComponentImportsMap = {
   [FieldType.checkbox]: () => import('./checkbox-field/checkbox-field.component'),
@@ -12,7 +13,8 @@ const dynamicComponentImportsMap = {
   [FieldType.select]: () => import('./select-field/select-field.component'),
   [FieldType.tel]: () => import('./tel-field/tel-field.component'),
   [FieldType.text]: () => import('./input-field/input-field.component'),
-  [FieldType.textarea]: () => import('./text-area-field/text-area-field.component')
+  [FieldType.textarea]: () => import('./text-area-field/text-area-field.component'),
+  [FieldType.form]: () => import('./form/form.component')
 }
 
 @Directive({
@@ -27,10 +29,10 @@ export class DynamicComponentLoaderDirective {
   }
 
   private loadComponent(dynamicComponentConfig: DynamicComponentConfig) {
-    this.resolveCmpClass<Field>(dynamicComponentImportsMap[dynamicComponentConfig.type]).then(cmpClass => {
+    this.resolveCmpClass<DynamicComponentBaseComponent>(dynamicComponentImportsMap[dynamicComponentConfig.type]).then(cmpClass => {
       const cmpFactory = this.componentFactoryResolver.resolveComponentFactory(cmpClass);
       const cmpRef = this.viewContainerRef.createComponent(cmpFactory);
-      // (cmpRef.instance as Field).dynamicComponentConfigs = dynamicComponentConfig.content;
+       (cmpRef.instance as DynamicComponentBaseComponent).dynamicComponentConfigs = dynamicComponentConfig.content;
     });
   }
 

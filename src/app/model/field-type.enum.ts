@@ -7,5 +7,6 @@ export enum FieldType {
   tel = 'tel',
   range = 'range',
   number = 'number',
-  select = 'select'
+  select = 'select',
+  form = 'form'
 }
