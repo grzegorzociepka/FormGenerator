@@ -1,22 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import {Field} from '../../model/field';
-import {FieldType} from '../../model/field-type.enum';
+import {Component, NgModule, OnInit} from '@angular/core';
+import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
+import {SharedModule} from '../SharedModule';
+import {AppModule} from '../../app.module';
 
 @Component({
   selector: 'app-number-field',
   templateUrl: './number-field.component.html',
   styleUrls: ['./number-field.component.scss']
 })
-export class NumberFieldComponent implements OnInit, Field {
-  name: string;
-  label: string;
-  type: FieldType;
-  value: string;
-  constructor() { }
+export class NumberFieldComponent extends DynamicComponentBaseComponent {
+}
 
-  ngOnInit(): void {
-  }
+@NgModule({
+  declarations: [NumberFieldComponent],
+  imports: [SharedModule, AppModule]
+})
 
-  render(): void {}
-
+class NumberFieldModule {
 }

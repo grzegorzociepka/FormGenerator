@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import {Field} from '../../model/field';
-import {FieldType} from '../../model/field-type.enum';
+import {Component, NgModule, OnInit} from '@angular/core';
+import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
+import {SharedModule} from '../SharedModule';
+import {AppModule} from '../../app.module';
+
 
 @Component({
   selector: 'app-select-field',
   templateUrl: './select-field.component.html',
   styleUrls: ['./select-field.component.scss']
 })
-export class SelectFieldComponent implements OnInit, Field {
-  name: string;
-  label: string;
-  type: FieldType;
-  value: string;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+export class SelectFieldComponent extends DynamicComponentBaseComponent {
 
-  render(): void {}
+}
 
+@NgModule({
+  declarations: [SelectFieldComponent],
+  imports: [SharedModule, AppModule]
+})
+
+class SelectFieldModule {
 }

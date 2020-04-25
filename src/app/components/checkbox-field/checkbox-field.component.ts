@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {FieldType} from '../../model/field-type.enum';
-import {Field} from '../../model/field';
+import {Component, NgModule, OnInit} from '@angular/core';
+import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
+import {SharedModule} from '../SharedModule';
+import {AppModule} from '../../app.module';
 
 @Component({
   selector: 'app-checkbox-field',
   templateUrl: './checkbox-field.component.html',
   styleUrls: ['./checkbox-field.component.scss']
 })
-export class CheckboxFieldComponent implements OnInit, Field {
-  name: string;
-  label: string;
-  type: FieldType;
-  value: string;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+export class CheckboxFieldComponent extends DynamicComponentBaseComponent {
 
-  render(): void {}
+}
 
+@NgModule({
+  declarations: [CheckboxFieldComponent],
+  imports: [SharedModule, AppModule]
+})
+
+class CheckboxFieldModule {
 }

@@ -1,22 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import {Field} from '../../model/field';
-import {FieldType} from '../../model/field-type.enum';
+import {Component, NgModule, OnInit} from '@angular/core';
+import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
+import {SharedModule} from '../SharedModule';
+import {AppModule} from '../../app.module';
 
 @Component({
   selector: 'app-tel-field',
   templateUrl: './tel-field.component.html',
   styleUrls: ['./tel-field.component.scss']
 })
-export class TelFieldComponent implements OnInit, Field {
-  name: string;
-  label: string;
-  type: FieldType;
-  value: string;
-  constructor() { }
+export class TelFieldComponent  extends DynamicComponentBaseComponent {
+}
 
-  ngOnInit(): void {
-  }
+@NgModule({
+  declarations: [TelFieldComponent],
+  imports: [SharedModule, AppModule]
+})
 
-  render(): void {}
-
+class TelFieldModule {
 }

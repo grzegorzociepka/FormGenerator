@@ -1,10 +1,8 @@
 import {Component, Input, NgModule, OnInit} from '@angular/core';
-import {Field} from '../../model/field';
-import {DynamicComponentConfig} from '../../model/DynamicComponentConfig';
-import {FieldType} from '../../model/field-type.enum';
 import {SharedModule} from '../SharedModule';
-import {InputFieldComponent} from '../input-field/input-field.component';
 import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
+import {FormsModule, NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-form',
@@ -13,13 +11,26 @@ import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
 })
 export class FormComponent extends DynamicComponentBaseComponent {
 
-  fieldsInForm: Field[];
+  onSubmit(e: any) {
+    // .preventDefault();
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i< e.length - 1; i++){
+
+      if(e.type === 'checkbox'){
+        console.log(e[i].name, e[i].checked);
+      }
+      else{
+        console.log(e[i].name, e[i].value);
+      }
+    }
+
+  }
 
 }
 
 @NgModule({
   declarations: [FormComponent],
-  imports: [SharedModule]
+  imports: [SharedModule, FormsModule]
 })
 
 class FormModule {

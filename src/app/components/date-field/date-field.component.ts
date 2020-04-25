@@ -1,22 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import {FieldType} from '../../model/field-type.enum';
-import {Field} from '../../model/field';
+import {Component, NgModule, OnInit} from '@angular/core';
+import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
+import {SharedModule} from '../SharedModule';
+import {AppModule} from '../../app.module';
 
 @Component({
   selector: 'app-date-field',
   templateUrl: './date-field.component.html',
   styleUrls: ['./date-field.component.scss']
 })
-export class DateFieldComponent implements OnInit, Field {
-  name: string;
-  label: string;
-  type: FieldType;
-  value: string;
-  constructor() { }
+export class DateFieldComponent extends DynamicComponentBaseComponent  {
+}
 
-  ngOnInit(): void {
-  }
+@NgModule({
+  declarations: [DateFieldComponent],
+  imports: [SharedModule, AppModule]
+})
 
-  render(): void {}
-
+class DateFieldModule {
 }

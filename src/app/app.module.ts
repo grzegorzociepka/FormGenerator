@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FieldLabelComponent } from './components/field-label/field-label.component';
 import {SharedModule} from './components/SharedModule';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,13 @@ import {SharedModule} from './components/SharedModule';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [],
+  exports: [
+    FieldLabelComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

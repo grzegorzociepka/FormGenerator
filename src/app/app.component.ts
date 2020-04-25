@@ -14,14 +14,47 @@ export class AppComponent {
   getDynamicComponentConfig(): DynamicComponentConfig {
     return {
       type: FieldType.form,
+      name: 'FORM',
       content: [
         {
-          type: FieldType.text,
-          content: []
+          type: FieldType.checkbox,
+          content: [],
+          name: 'checkbox'
         },
         {
           type: FieldType.text,
-          content: []
+          content: [],
+          name: 'textInput'
+        },
+        {
+          type: FieldType.number,
+          content: [],
+          name: 'Input number'
+        },
+        {
+          type: FieldType.textarea,
+          content: [],
+          name: 'Input textarea'
+        },
+        {
+          type: FieldType.email,
+          content: [],
+          name: 'Input email'
+        },
+        {
+          type: FieldType.date,
+          content: [],
+          name: 'Input date'
+        },
+        {
+          type: FieldType.range,
+          content: [],
+          name: 'Input range'
+        },
+        {
+          type: FieldType.select,
+          content: [],
+          name: 'Input select'
         }
       ],
 

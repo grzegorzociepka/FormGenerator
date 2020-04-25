@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import {FieldType} from '../../model/field-type.enum';
-import {Field} from '../../model/field';
+import {Component, NgModule, OnInit} from '@angular/core';
+import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
+import {SharedModule} from '../SharedModule';
+import {AppModule} from '../../app.module';
 
 @Component({
   selector: 'app-email-field',
   templateUrl: './email-field.component.html',
   styleUrls: ['./email-field.component.scss']
 })
-export class EmailFieldComponent implements OnInit, Field {
-  name: string;
-  label: string;
-  type: FieldType;
-  value: string;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  render(): void {}
+export class EmailFieldComponent extends DynamicComponentBaseComponent {
 
 }
+
+@NgModule({
+  declarations: [EmailFieldComponent],
+  imports: [SharedModule, AppModule]
+})
+
+class EmailFieldModule {
+}
+

@@ -32,7 +32,8 @@ export class DynamicComponentLoaderDirective {
     this.resolveCmpClass<DynamicComponentBaseComponent>(dynamicComponentImportsMap[dynamicComponentConfig.type]).then(cmpClass => {
       const cmpFactory = this.componentFactoryResolver.resolveComponentFactory(cmpClass);
       const cmpRef = this.viewContainerRef.createComponent(cmpFactory);
-       (cmpRef.instance as DynamicComponentBaseComponent).dynamicComponentConfigs = dynamicComponentConfig.content;
+      (cmpRef.instance as DynamicComponentBaseComponent).dynamicComponentConfigs = dynamicComponentConfig.content;
+      (cmpRef.instance as DynamicComponentBaseComponent).name = dynamicComponentConfig.name;
     });
   }
 

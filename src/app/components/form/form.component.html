@@ -1,4 +1,8 @@
-<ng-container *ngFor="let dynamicComponentConfig of dynamicComponentConfigs">
-  <ng-template [appDynamicComponentLoader]="dynamicComponentConfig">
-  </ng-template>
-</ng-container>
+<form name="{{ name }}" (submit)="onSubmit(form)" #form novalidate >
+  <ng-container *ngFor="let dynamicComponentConfig of dynamicComponentConfigs">
+    <ng-template [appDynamicComponentLoader]="dynamicComponentConfig">
+    </ng-template>
+  </ng-container>
+  <button type="submit">Submit</button>
+</form>
+

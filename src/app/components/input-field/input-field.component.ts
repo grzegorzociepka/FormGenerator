@@ -1,9 +1,8 @@
 import {Component, Input, NgModule, OnInit} from '@angular/core';
-import {FieldType} from '../../model/field-type.enum';
-import {Field} from '../../model/field';
 import {SharedModule} from '../SharedModule';
-import {DynamicComponentConfig} from '../../model/DynamicComponentConfig';
 import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
+import {AppModule} from '../../app.module';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-input-field',
@@ -13,11 +12,12 @@ import {DynamicComponentBaseComponent} from '../DynamicComponentBaseComponent';
 
 
 export class InputFieldComponent extends DynamicComponentBaseComponent {
+
 }
 
 @NgModule({
   declarations: [InputFieldComponent],
-  imports: [SharedModule]
+  imports: [SharedModule, AppModule, FormsModule]
 })
 
 class InputFieldModule {
