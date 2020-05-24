@@ -28,15 +28,24 @@ export class FormComponent implements OnInit {
   get formArray() { return this.formControls.values as FormArray; }
 
   onSubmit() {
-
     if(this.dynamicForm.controls.values.status !== 'INVALID') {
-      this.locStorage.saveDocument(this.getValues());
+      const key = this.locStorage.saveDocument(this.getValues());
+      alert(`zapisano z id: ${key}`);
     } else {
-      alert("WRONG");
+      alert(this.getErrorMessage());
     }
 
   }
 
+  getErrorMessage(): string {
+    let errors = '';
+    this.dynamicForm.controls.values['controls'].forEach(x => {
+      if(x.status === 'INVALID'){
+        errors += `${x.value.Name} is required\n`;
+      }
+    });
+    return errors;
+  }
   getValues(): string {
     return JSON.stringify(this.dynamicForm.value.values.map(x => { return {
       Name: x.Name,

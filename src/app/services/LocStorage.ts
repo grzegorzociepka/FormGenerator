@@ -13,10 +13,11 @@ export class LocStorage implements LocalStorage {
     return localStorage.getItem(key);
   }
 
-  saveDocument(doc: string): void {
+  saveDocument(doc: string): string {
     const key = this.generateId();
     localStorage.setItem(key, doc);
     this.updateKeyList(key);
+    return key;
   }
 
   private updateKeyList(key: string): void{
