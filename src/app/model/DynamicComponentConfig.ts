@@ -5,3 +5,9 @@ export interface DynamicComponentConfig {
   type: FieldType;
   name: string;
 }
+export interface TestInterface {
+  type: string;
+  name: string;
+  required: boolean;
+  predefinedValue?: string;
+}

@@ -5,18 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FieldLabelComponent } from './components/field-label/field-label.component';
 import {SharedModule} from './components/SharedModule';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormComponent} from './components/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FieldLabelComponent
+    FieldLabelComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   exports: [

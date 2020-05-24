@@ -1,5 +1,9 @@
 import {LocalStorage} from '../model/Storage';
+import {Injectable} from '@angular/core';
 
+@Injectable(
+  {providedIn: 'any'}
+)
 export class LocStorage implements LocalStorage {
   getDocuments(): string[] {
     return JSON.parse(localStorage.getItem('docKeys'));
@@ -16,9 +20,14 @@ export class LocStorage implements LocalStorage {
   }
 
   private updateKeyList(key: string): void{
-    const docs: string[] = JSON.parse(localStorage.getItem('docKeys'));
+    let docs = JSON.parse(localStorage.getItem('docKeys'));
+    if(docs === null){
+      localStorage.setItem('docKeys', '[]');
+      docs = JSON.parse(localStorage.getItem('docKeys'));
+    }
+
     docs.push(key);
-    localStorage.setItem('docKeys', docs.toString());
+    localStorage.setItem('docKeys', JSON.stringify(docs));
   }
 
   private generateId(): string {
