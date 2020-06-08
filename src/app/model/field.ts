@@ -1,9 +1,7 @@
-import {FieldType} from './field-type.enum';
+import { FormGroup } from '@angular/forms';
+import { FieldConfig } from './field-config.interface';
 
 export interface Field {
-  name: string;
-  label: string;
-  value: string;
-  type: FieldType;
-  render(): void;
+  config: FieldConfig;
+  group: FormGroup;
 }

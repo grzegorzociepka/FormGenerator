@@ -3,28 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FieldLabelComponent } from './components/field-label/field-label.component';
-import {SharedModule} from './components/SharedModule';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FormComponent} from './components/form/form.component';
+import {DynamicFormModule} from './modules/dynamic-form/dynamic-form.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    FieldLabelComponent,
-    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DynamicFormModule
   ],
   providers: [],
-  exports: [
-    FieldLabelComponent
-  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
