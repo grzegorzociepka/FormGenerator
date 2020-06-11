@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {FieldConfig} from '../../model/field-config.interface';
+import {LocStorage} from '../../services/LocStorage';
 
 @Component({
   exportAs: 'dynamicForm',
@@ -34,7 +35,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   get valid() { return this.form.valid; }
   get value() { return this.form.value; }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private storage: LocStorage) {}
 
   ngOnInit() {
     this.form = this.createGroup();
@@ -73,8 +74,8 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   handleSubmit(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log(this.value);
-    this.submit.emit(this.value);
+    this.storage.saveDocument(JSON.stringify(this.value));
+    // this.submit.emit(this.value);
   }
 
   setDisabled(name: string, disable: boolean) {

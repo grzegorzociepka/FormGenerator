@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LocStorage} from '../../services/LocStorage';
 
 @Component({
   selector: 'app-documents-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentsListComponent implements OnInit {
 
-  constructor() { }
+  docs: string[];
+
+  constructor(private storage: LocStorage) { }
 
   ngOnInit(): void {
+    this.docs = this.storage.getDocuments();
   }
 
 }
