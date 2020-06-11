@@ -1,5 +1,4 @@
 <div>
-  <ul>
-    <li *ngFor="let doc in docs">{{ doc }}</li>
-  </ul>
+    <a *ngFor="let doc of docs" [routerLink]="['/document', doc]">{{ doc }}</a>
+  <span *ngIf="!docs">No documents</span>
 </div>

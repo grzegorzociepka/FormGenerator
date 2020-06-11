@@ -1,5 +1,6 @@
 import {LocalStorage} from '../model/Storage';
 import {Injectable} from '@angular/core';
+import {FieldConfig} from '../model/field-config.interface';
 
 @Injectable(
   {providedIn: 'any'}
@@ -9,8 +10,8 @@ export class LocStorage implements LocalStorage {
     return JSON.parse(localStorage.getItem('docKeys'));
   }
 
-  loadDocument(key: string): string {
-    return localStorage.getItem(key);
+  loadDocument(key: string): FieldConfig[] {
+    return JSON.parse(localStorage.getItem(key));
   }
 
   saveDocument(doc: string): string {
@@ -20,7 +21,7 @@ export class LocStorage implements LocalStorage {
     return key;
   }
 
-  private updateKeyList(key: string): void{
+  private updateKeyList(key: string): void {
     let docs = JSON.parse(localStorage.getItem('docKeys'));
     if(docs === null){
       localStorage.setItem('docKeys', '[]');

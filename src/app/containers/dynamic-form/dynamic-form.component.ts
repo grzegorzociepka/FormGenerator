@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angu
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {FieldConfig} from '../../model/field-config.interface';
 import {LocStorage} from '../../services/LocStorage';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   exportAs: 'dynamicForm',
@@ -22,22 +23,26 @@ import {LocStorage} from '../../services/LocStorage';
   `
 })
 export class DynamicFormComponent implements OnChanges, OnInit {
-  @Input()
+  // @Input()
   config: FieldConfig[] = [];
 
   @Output()
   submit: EventEmitter<any> = new EventEmitter<any>();
 
   form: FormGroup;
-
+  Id: string;
   get controls() { return this.config.filter(({type}) => type !== 'button'); }
   get changes() { return this.form.valueChanges; }
   get valid() { return this.form.valid; }
   get value() { return this.form.value; }
 
-  constructor(private fb: FormBuilder, private storage: LocStorage) {}
+  constructor(private fb: FormBuilder, private storage: LocStorage, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.config = this.storage.loadDocument(params['id']);
+      this.Id = params['id'];
+    });
     this.form = this.createGroup();
   }
 
