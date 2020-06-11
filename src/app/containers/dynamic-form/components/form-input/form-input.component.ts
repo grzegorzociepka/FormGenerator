@@ -1,10 +1,11 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {Field} from '../../../model/field';
-import {FieldConfig} from '../../../model/field-config.interface';
+import {Field} from '../../../../model/field';
+import {FieldConfig} from '../../../../model/field-config.interface';
 
 @Component({
   selector: 'form-input',
+  styleUrls: ['./form-input.component.scss'],
   template: `
     <div
       class="dynamic-field form-input"

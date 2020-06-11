@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {Field} from '../../../model/field';
+import {Field} from '../../../../model/field';
 
 @Component({
   selector: 'form-select',
+  styleUrls: ['./form-select.component.scss'],
   template: `
     <div
       class="dynamic-field form-select"
