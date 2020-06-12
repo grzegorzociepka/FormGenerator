@@ -1,5 +1,6 @@
 <div *ngFor="let doc of docs">
     <a  [routerLink]="['/document', doc]">{{ doc }}</a>
+    <button style="margin-left:1em" (click)="delete(doc)" >DELETE</button>
     <br>
 </div>
 <span *ngIf="!docs">No documents</span>

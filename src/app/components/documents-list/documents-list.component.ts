@@ -16,4 +16,8 @@ export class DocumentsListComponent implements OnInit {
     this.docs = this.storage.getDocuments();
   }
 
+  delete(id: string): void{
+    this.storage.removeDocument(id);
+    this.docs = this.storage.getDocuments();
+  }
 }
