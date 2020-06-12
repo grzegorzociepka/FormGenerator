@@ -24,6 +24,9 @@ export class LocStorage implements LocalStorage {
   updateDocument(key: string, doc: string): void {
       localStorage.setItem(key, doc);
   }
+  removeDocument(key: string): void {
+    localStorage.removeItem(key);
+  }
 
   private updateKeyList(key: string): void {
     let docs = JSON.parse(localStorage.getItem('docKeys'));
