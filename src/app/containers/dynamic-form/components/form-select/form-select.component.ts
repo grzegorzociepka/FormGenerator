@@ -10,9 +10,10 @@ import {Field} from '../../../../model/field';
       class="dynamic-field form-select"
       [formGroup]="group">
       <label>{{ config.label }}</label>
-      <select [formControlName]="config.name">
+      {{config.value}}
+      <select [formControlName]="config.name" >
         <option value="">{{ config.placeholder }}</option>
-        <option *ngFor="let option of config.options">
+        <option *ngFor="let option of config.options" [selected]="config.value === option">
           {{ option }}
         </option>
       </select>

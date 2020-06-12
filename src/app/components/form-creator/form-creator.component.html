@@ -14,8 +14,13 @@
     <input type="text" formControlName="label">
   </label>
   <br>
+  <label>
+    Placeholder:
+    <input type="text" formControlName="placeholder">
+  </label>
+  <br>
   <div formArrayName="options" *ngIf="form.value.type == 'select'">
-    <h3>Options</h3> <button (click)="addOption()">Add Option</button>
+    <h3>Options</h3> <button (click)="addOption($event)">Dodaj opcje</button>
 
     <div *ngFor="let option of options.controls; let i=index">
       <label>
@@ -28,7 +33,8 @@
 
   <button type="submit" [disabled]="!form.valid">Dodaj pole</button>
 </form>
-
+<br><br>
+<button (click)="saveDocument()" >Save document</button>
 <br><br>
 
 {{ document | json}}

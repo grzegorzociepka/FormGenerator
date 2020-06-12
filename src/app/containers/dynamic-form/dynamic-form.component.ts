@@ -23,11 +23,8 @@ import {ActivatedRoute} from '@angular/router';
   `
 })
 export class DynamicFormComponent implements OnChanges, OnInit {
-  // @Input()
-  config: FieldConfig[] = [];
 
-  @Output()
-  submit: EventEmitter<any> = new EventEmitter<any>();
+  config: FieldConfig[] = [];
 
   form: FormGroup;
   Id: string;
@@ -79,23 +76,12 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   handleSubmit(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    this.storage.saveDocument(JSON.stringify(this.value));
-    // this.submit.emit(this.value);
-  }
+    const val = Object.values(this.value);
 
-  setDisabled(name: string, disable: boolean) {
-    if (this.form.controls[name]) {
-      const method = disable ? 'disable': 'enable';
-      this.form.controls[name][method]();
-      return;
+    for (let i = 0; i < this.config.length - 1; i++) {
+      this.config[i].value = val[i];
     }
-
-    this.config = this.config.map((item) => {
-      if (item.name === name) {
-        item.disabled = disable;
-      }
-      return item;
-    });
+    this.storage.updateDocument(this.Id, JSON.stringify(this.config));
   }
 
   setValue(name: string, value: any) {

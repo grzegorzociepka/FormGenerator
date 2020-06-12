@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {FieldConfig} from '../../model/field-config.interface';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {LocStorage} from '../../services/LocStorage';
 
 @Component({
   selector: 'app-form-creator',
@@ -13,7 +14,7 @@ export class FormCreatorComponent implements OnInit {
   form: FormGroup;
   productFormGroup: FormArray;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private storage: LocStorage) { }
 
   get options() {
     return this.form.get('options') as FormArray;
@@ -25,6 +26,8 @@ export class FormCreatorComponent implements OnInit {
       this.form = this.fb.group({
         name: ['', Validators.required],
         label: ['', Validators.required],
+        placeholder: [''],
+        value: [''],
         type: ['input', Validators.required],
         options: this.fb.array([
           this.fb.control('')
@@ -32,15 +35,21 @@ export class FormCreatorComponent implements OnInit {
       });
   }
 
-  addOption() {
+  addOption(event) {
+    event.preventDefault();
+    event.stopPropagation();
     this.options.push(this.fb.control(''));
   }
 
   onSubmit() {
-    const newField = {};
     console.log(this.form.value);
     this.document.unshift(this.form.value);
     this.form.reset();
   }
 
+  saveDocument() {
+    this.storage.saveDocument(JSON.stringify(this.document));
+    this.form.reset();
+    this.document = [];
+  }
 }

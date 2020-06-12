@@ -1,6 +1,7 @@
-<div>
-    <a *ngFor="let doc of docs" [routerLink]="['/document', doc]">{{ doc }}</a>
-  <span *ngIf="!docs">No documents</span>
+<div *ngFor="let doc of docs">
+    <a  [routerLink]="['/document', doc]">{{ doc }}</a>
+    <br>
 </div>
+<span *ngIf="!docs">No documents</span>
 <br>
 <a href="/createDocument">Create new document</a>
