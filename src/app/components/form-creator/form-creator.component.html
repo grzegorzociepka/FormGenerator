@@ -1,15 +1,35 @@
-<form>
-  <select>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <select formControlName="type">
     <option>input</option>
     <option>select</option>
   </select>
+  <br>
+  <label>
+    Name:
+    <input type="text" formControlName="name">
+  </label>
+  <br>
+  <label>
+    Label:
+    <input type="text" formControlName="label">
+  </label>
+  <br>
+  <div formArrayName="options" *ngIf="form.value.type == 'select'">
+    <h3>Options</h3> <button (click)="addOption()">Add Option</button>
 
-  <input type="text" />
+    <div *ngFor="let option of options.controls; let i=index">
+      <label>
+        Option:
+        <input type="text" [formControlName]="i">
+      </label>
+    </div>
+  </div>
 
-  <button>Dodaj pole</button>
+
+  <button type="submit" [disabled]="!form.valid">Dodaj pole</button>
 </form>
-
 
 <br><br>
 
 {{ document | json}}
+
