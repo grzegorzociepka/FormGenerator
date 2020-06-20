@@ -11,7 +11,6 @@ import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
-import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,7 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     MatSelectModule
   ],
-  exports: [DynamicFormComponent],
+  exports: [DynamicFormComponent, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule],
   entryComponents: [
     FormButtonComponent,
     FormInputComponent,

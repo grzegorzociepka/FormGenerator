@@ -1,40 +1,46 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <select formControlName="type">
-    <option>input</option>
-    <option>select</option>
-  </select>
+  <mat-form-field >
+    <mat-label>Type</mat-label>
+    <mat-select formControlName="type">
+      <mat-option *ngFor="let type of types" [value]="type">
+        {{type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <br>
-  <label>
-    Name:
-    <input type="text" formControlName="name">
-  </label>
+  <mat-form-field>
+    <mat-label>Name:</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
   <br>
-  <label>
-    Label:
-    <input type="text" formControlName="label">
-  </label>
+  <mat-form-field>
+    <mat-label>Label:</mat-label>
+    <input matInput formControlName="label">
+  </mat-form-field>
   <br>
-  <label>
-    Placeholder:
-    <input type="text" formControlName="placeholder">
-  </label>
+  <mat-form-field *ngIf="form.value.type != 'select'">
+    <mat-label>Placeholder:</mat-label>
+    <input matInput formControlName="placeholder">
+  </mat-form-field>
   <br>
+
   <div formArrayName="options" *ngIf="form.value.type == 'select'">
-    <h3>Options</h3> <button (click)="addOption($event)">Dodaj opcje</button>
-
-    <div *ngFor="let option of options.controls; let i=index">
-      <label>
-        Option:
-        <input type="text" [formControlName]="i">
-      </label>
-    </div>
+    <mat-label>Options</mat-label>
+    <br>
+    <button mat-raised-button (click)="addOption($event)">Add option</button>
+    <br><br>
+    <mat-form-field *ngFor="let option of options.controls; let i=index" class="form-field">
+      <mat-label>Option:</mat-label>
+      <input matInput [formControlName]="i"/>
+    </mat-form-field>
   </div>
-
-
-  <button type="submit" [disabled]="!form.valid">Dodaj pole</button>
+<br>
+  <button mat-raised-button type="submit" [disabled]="!form.valid">Add field</button>
 </form>
 <br><br>
-<button (click)="saveDocument()" >Save document</button>
+<button mat-raised-button (click)="saveDocument()" >Save document</button>
 <br><br>
 
 {{ document | json}}

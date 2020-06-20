@@ -13,6 +13,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { FormMailComponent } from './containers/dynamic-form/components/form-mail/form-mail.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
     AppComponent,
     FormCreatorComponent,
     DocumentsListComponent,
+    FormMailComponent,
   ],
   imports: [
     BrowserModule,

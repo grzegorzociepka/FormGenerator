@@ -12,6 +12,7 @@ export class FormCreatorComponent implements OnInit {
 
   document: FieldConfig[] = [];
   form: FormGroup;
+  types: string[] = ['input', 'select', 'email'];
 
   constructor(private fb: FormBuilder, private storage: LocStorage) { }
 
@@ -41,7 +42,6 @@ export class FormCreatorComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
     this.document.unshift(this.form.value);
     this.form.reset();
   }

@@ -1,11 +1,11 @@
 <mat-list>
   <mat-card *ngFor="let doc of docs" [routerLink]="['/document', doc]" class="listItem">
     {{doc}}
-    <button mat-raised-button color="warn" style="margin-left:1em" (click)="delete(doc)" >DELETE</button>
+    <button mat-icon-button color="warn" style="margin-left:1em" (click)="delete(doc)" ><mat-icon>delete</mat-icon></button>
   </mat-card>
 </mat-list>
 
 <span *ngIf="!docs">No documents</span>
 
-<button mat-raised-button [routerLink]="['createDocument']" class="addDocument">Create new document</button>
+<button mat-raised-button color="primary" [routerLink]="['createDocument']" class="addDocument">Create new document</button>
 

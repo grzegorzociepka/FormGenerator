@@ -5,12 +5,14 @@ import {FormButtonComponent} from './form-button/form-button.component';
 import {FormInputComponent} from './form-input/form-input.component';
 import {FormSelectComponent} from './form-select/form-select.component';
 import {FieldConfig} from '../../../model/field-config.interface';
+import {FormMailComponent} from './form-mail/form-mail.component';
 
 
 const components: {[type: string]: Type<Field>} = {
   button: FormButtonComponent,
   input: FormInputComponent,
-  select: FormSelectComponent
+  select: FormSelectComponent,
+  email: FormMailComponent
 };
 
 @Directive({
