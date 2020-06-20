@@ -12,7 +12,7 @@ export class FormCreatorComponent implements OnInit {
 
   document: FieldConfig[] = [];
   form: FormGroup;
-  types: string[] = ['input', 'select', 'email'];
+  types: string[] = ['input', 'select', 'email', 'textArea', 'datetime', 'number'];
 
   constructor(private fb: FormBuilder, private storage: LocStorage) { }
 

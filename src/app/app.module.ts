@@ -14,6 +14,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { FormMailComponent } from './containers/dynamic-form/components/form-mail/form-mail.component';
+import { FormTextAreaComponent } from './containers/dynamic-form/components/form-text-area/form-text-area.component';
+import { FormDatetimeComponent } from './containers/dynamic-form/components/form-datetime/form-datetime.component';
+import { FormNumberComponent } from './containers/dynamic-form/components/form-number/form-number.component';
 
 
 @NgModule({
@@ -22,6 +25,9 @@ import { FormMailComponent } from './containers/dynamic-form/components/form-mai
     FormCreatorComponent,
     DocumentsListComponent,
     FormMailComponent,
+    FormTextAreaComponent,
+    FormDatetimeComponent,
+    FormNumberComponent,
   ],
   imports: [
     BrowserModule,

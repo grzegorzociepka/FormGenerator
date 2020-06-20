@@ -6,13 +6,19 @@ import {FormInputComponent} from './form-input/form-input.component';
 import {FormSelectComponent} from './form-select/form-select.component';
 import {FieldConfig} from '../../../model/field-config.interface';
 import {FormMailComponent} from './form-mail/form-mail.component';
+import {FormTextAreaComponent} from './form-text-area/form-text-area.component';
+import {FormNumberComponent} from './form-number/form-number.component';
+import {FormDatetimeComponent} from './form-datetime/form-datetime.component';
 
 
 const components: {[type: string]: Type<Field>} = {
   button: FormButtonComponent,
   input: FormInputComponent,
   select: FormSelectComponent,
-  email: FormMailComponent
+  email: FormMailComponent,
+  textArea: FormTextAreaComponent,
+  number: FormNumberComponent,
+  datetime: FormDatetimeComponent
 };
 
 @Directive({
