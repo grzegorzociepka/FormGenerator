@@ -12,6 +12,7 @@ import {FieldConfig} from '../../../../model/field-config.interface';
       class="dynamic-field form-button"
       [formGroup]="group">
       <button
+        mat-raised-button
         [disabled]="config.disabled"
         type="submit">
         {{ config.label }}

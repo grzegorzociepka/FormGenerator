@@ -12,7 +12,6 @@ export class FormCreatorComponent implements OnInit {
 
   document: FieldConfig[] = [];
   form: FormGroup;
-  productFormGroup: FormArray;
 
   constructor(private fb: FormBuilder, private storage: LocStorage) { }
 

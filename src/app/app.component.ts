@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -7,24 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  config = [
-    {
-      type: 'input',
-      label: 'Full name',
-      name: 'name',
-      placeholder: 'Enter your name',
-    },
-    {
-      type: 'select',
-      label: 'Favourite food',
-      name: 'food',
-      options: ['Pizza', 'Hot Dogs', 'Knakworstje', 'Coffee'],
-      placeholder: 'Select an option',
-    },
-    {
-      label: 'Submit',
-      name: 'submit',
-      type: 'button',
-    },
-  ];
+  @ViewChild('sidenav') public sidenav: MatSidenav;
+
+  toggle() {
+    this.sidenav.toggle();
+  }
+
 }

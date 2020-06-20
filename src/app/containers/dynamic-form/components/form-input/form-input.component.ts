@@ -6,17 +6,7 @@ import {FieldConfig} from '../../../../model/field-config.interface';
 @Component({
   selector: 'form-input',
   styleUrls: ['./form-input.component.scss'],
-  template: `
-    <div
-      class="dynamic-field form-input"
-      [formGroup]="group">
-      <label>{{ config.label }}</label>
-      <input
-        type="text"
-        [attr.placeholder]="config.placeholder"
-        [formControlName]="config.name">
-    </div>
-  `
+  templateUrl: './form-input.component.html'
 })
 
 export class FormInputComponent implements Field {

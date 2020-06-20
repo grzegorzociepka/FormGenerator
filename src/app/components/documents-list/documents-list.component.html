@@ -1,8 +1,11 @@
-<div *ngFor="let doc of docs">
-    <a  [routerLink]="['/document', doc]">{{ doc }}</a>
-    <button style="margin-left:1em" (click)="delete(doc)" >DELETE</button>
-    <br>
-</div>
+<mat-list>
+  <mat-card *ngFor="let doc of docs" [routerLink]="['/document', doc]" class="listItem">
+    {{doc}}
+    <button mat-raised-button color="warn" style="margin-left:1em" (click)="delete(doc)" >DELETE</button>
+  </mat-card>
+</mat-list>
+
 <span *ngIf="!docs">No documents</span>
-<br>
-<a href="/createDocument">Create new document</a>
+
+<button mat-raised-button [routerLink]="['createDocument']" class="addDocument">Create new document</button>
+
